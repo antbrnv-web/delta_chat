@@ -1,47 +1,532 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Delta Chat + Яндекс — инструкция</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<!-- saved from url=(0044)https://www.genspark.ai/api/files/s/o4q2Algf -->
+<html lang="ru" data-theme="light" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройка Delta Chat с Яндекс.Почтой</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="./Настройка Delta Chat с Яндекс.Почтой_files/css2" rel="stylesheet">
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 40px 60px;
+        font-family:
+          'Inter',
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: #1a1a1a;
+        background-color: #ffffff;
+        line-height: 1.5;
+        box-sizing: border-box;
+      }
 
-<div class="container">
-  <h1>Delta Chat + Яндекс</h1>
-  <p class="subtitle">Быстрая настройка мессенджера поверх email</p>
+      /* Стили для печати/PDF */
+      @media print {
+        body {
+          padding: 0;
+          max-width: 100%;
+        }
+        .no-print {
+          display: none !important;
+        }
+        a {
+          text-decoration: none;
+          color: #000;
+        }
+        .step-block {
+          page-break-inside: avoid;
+        }
+      }
 
-  <section>
-    <h2>Важно</h2>
-    <p>Создайте отдельный аккаунт Яндекс.Почты для безопасности.</p>
-  </section>
+      h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #000;
+        border-bottom: 2px solid #fc3f1d; /* Яндекс красный/оранжевый */
+        padding-bottom: 12px;
+      }
 
-  <section>
-    <h2>1. Включите IMAP</h2>
-    <img src="assets/imap.png" class="big-img">
-  </section>
+      .subtitle {
+        font-size: 18px;
+        color: #555;
+        margin-bottom: 4px;
+        font-weight: 500;
+      }
 
-  <section>
-    <h2>2. Пароль приложения</h2>
-    <img src="assets/password.png" class="big-img">
-  </section>
+      .date {
+        font-size: 14px;
+        color: #888;
+        margin-bottom: 32px;
+      }
 
-  <section>
-    <h2>3. Вход в Delta Chat</h2>
-    <img src="assets/login.png" class="big-img">
-  </section>
+      .warning-box {
+        background-color: #fff9db; /* Светло-желтый */
+        border-left: 5px solid #ffcc00;
+        padding: 16px;
+        margin-bottom: 24px;
+        border-radius: 4px;
+        font-size: 15px;
+      }
 
-  <section>
-    <h2>4. Настройки серверов</h2>
-    <img src="assets/settings.png" class="big-img">
-  </section>
+      .intro {
+        margin-bottom: 32px;
+        font-size: 16px;
+        color: #333;
+      }
 
-  <section>
-    <h2>5. Проверка</h2>
-    <img src="assets/check.png" class="big-img">
-  </section>
+      .step-block {
+        margin-bottom: 32px;
+      }
+
+      .step-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      .step-number {
+        background-color: #2b8cff; /* Яндекс синий */
+        color: white;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 12px;
+        flex-shrink: 0;
+        font-size: 16px;
+      }
+
+      .step-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #000;
+        margin: 0;
+      }
+
+      ul {
+        margin-top: 8px;
+        margin-bottom: 16px;
+        padding-left: 24px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .screenshot-container {
+        margin: 16px 0 24px 0;
+        text-align: center;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .caption {
+        font-size: 13px;
+        color: #666;
+        margin-top: 6px;
+        text-align: center;
+        font-style: italic;
+      }
+
+      .settings-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0;
+        font-size: 14px;
+      }
+
+      .settings-table th,
+      .settings-table td {
+        border: 1px solid #e0e0e0;
+        padding: 10px 12px;
+        text-align: left;
+      }
+
+      .settings-table th {
+        background-color: #f5f7fa;
+        font-weight: 600;
+        width: 35%;
+        color: #333;
+      }
+
+      .settings-section-header {
+        background-color: #eef2f6 !important;
+        font-weight: 700 !important;
+        color: #2b8cff !important;
+        text-align: center !important;
+      }
+
+      .troubleshoot-box {
+        background-color: #fff0f0;
+        border-left: 5px solid #ff4d4f;
+        padding: 16px;
+        margin-top: 40px;
+        margin-bottom: 24px;
+        border-radius: 4px;
+      }
+
+      .troubleshoot-title {
+        font-weight: 700;
+        color: #cf1322;
+        margin-bottom: 8px;
+        font-size: 16px;
+      }
+
+      .sources {
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+        font-size: 13px;
+        color: #666;
+      }
+
+      .sources a {
+        color: #2b8cff;
+        text-decoration: none;
+      }
+
+      .print-btn {
+        background-color: #2b8cff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: inherit;
+        font-weight: 500;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+
+      .print-btn:hover {
+        background-color: #1a7ae6;
+      }
+
+      code {
+        background-color: #f1f1f1;
+        padding: 2px 4px;
+        border-radius: 3px;
+        font-family: monospace;
+        font-size: 0.9em;
+      }
+    </style>
+  </head>
+  <body style=""><br><h1>Настройка Delta Chat с Яндекс.Почтой</h1>
+    <div class="subtitle">Пошаговая инструкция</div>
+    <div class="date">Март 2026</div>
+
+    <div class="warning-box">
+      <strong>⚠️ Важно:</strong> Рекомендуется завести <strong>ОТДЕЛЬНЫЙ</strong> аккаунт Яндекса и отдельную
+      Яндекс.Почту специально для Delta Chat. Не используйте основную личную почту — это безопаснее и удобнее.
+    </div>
+
+    <div class="intro">
+      <p>
+        Delta Chat — это мессенджер, который работает поверх обычных почтовых протоколов, но выглядит как Telegram или
+        WhatsApp. Яндекс.Почта является отличным выбором для использования в России: серверы Яндекса входят в «белые»
+        списки провайдеров и стабильно работают даже в условиях строгих сетевых ограничений.
+      </p>
+    </div>
+
+    <!-- ШАГ 1 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">1</div>
+        <h2 class="step-title">Зарегистрируйте отдельный аккаунт</h2>
+      </div>
+      <ul>
+        <li>
+          Зайдите на <a href="https://passport.yandex.ru/" target="_blank">passport.yandex.ru</a> и создайте новый
+          аккаунт.
+        </li>
+        <li>Запомните логин и пароль — это будет ваш «номер» для Delta Chat.</li>
+        <li>
+          Убедитесь, что вы зашли в почтовый ящик хотя бы один раз, чтобы завершить активацию (адрес вида
+          <code>login@yandex.ru</code>).
+        </li>
+      </ul>
+    </div>
+
+    <!-- ШАГ 2 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">2</div>
+        <h2 class="step-title">Включите IMAP в Яндекс.Почте</h2>
+      </div>
+      <ul>
+        <li>Зайдите в Яндекс.Почту через браузер (с компьютера или в полной версии на телефоне).</li>
+        <li>Нажмите на шестеренку <strong>⚙️</strong> (справа сверху) → <strong>«Все настройки»</strong>.</li>
+        <li>Перейдите в раздел <strong>«Почтовые программы»</strong>.</li>
+        <li>
+          Поставьте галочки:
+          <ul>
+            <li><strong>«С сервера imap.yandex.ru по протоколу IMAP»</strong></li>
+            <li><strong>«Пароли приложений и OAuth-токены»</strong></li>
+          </ul>
+        </li>
+        <li>Нажмите кнопку <strong>«Сохранить изменения»</strong>.</li>
+      </ul>
+
+      <div class="screenshot-container">
+        <img src="./Настройка Delta Chat с Яндекс.Почтой_files/cfimages" alt="Меню настроек Яндекс почты" data-height-listener-added="true">
+        <div class="caption">Раздел «Все настройки» в веб-интерфейсе</div>
+      </div>
+      <div class="screenshot-container">
+        <img src="./Настройка Delta Chat с Яндекс.Почтой_files/cfimages(1)" alt="Включение протокола IMAP" data-height-listener-added="true">
+        <div class="caption">Включение галочки IMAP и сохранение изменений</div>
+      </div>
+    </div>
+
+    <!-- ШАГ 3 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">3</div>
+        <h2 class="step-title">Создайте пароль приложения</h2>
+      </div>
+      <p style="margin-left: 44px; margin-bottom: 12px">
+        <strong>Важно:</strong> Ваш обычный пароль от Яндекса не сработает в сторонних программах. Нужен специальный
+        пароль.
+      </p>
+      <ul>
+        <li>Откройте управление аккаунтом: <strong>Яндекс ID</strong> → раздел <strong>«Безопасность»</strong>.</li>
+        <li>Пролистайте вниз до блока «Доступ к вашим данным» и выберите <strong>«Пароли приложений»</strong>.</li>
+        <li>Нажмите <strong>«Создать пароль»</strong>, выберите тип <strong>«Почта»</strong>.</li>
+        <li>Придумайте название (например, <code>DeltaChat</code>).</li>
+        <li>Нажмите «Далее». Сервис покажет пароль <strong>только один раз</strong>.</li>
+        <li><strong>Сразу скопируйте или запишите его.</strong></li>
+      </ul>
+      <p style="margin-left: 44px; font-size: 14px; color: #666">
+        <em>Примечание: Иногда активация нового пароля занимает до 1–2 часов. Если сразу не заходит — просто
+          подождите.</em>
+      </p>
+
+      <div class="screenshot-container">
+        <img src="./Настройка Delta Chat с Яндекс.Почтой_files/cfimages(2)" alt="Раздел Пароли приложений" data-height-listener-added="true">
+        <div class="caption">Яндекс ID → Безопасность → Пароли приложений</div>
+      </div>
+      <div class="screenshot-container">
+        <img src="./Настройка Delta Chat с Яндекс.Почтой_files/cfimages(3)" alt="Окно с выданным паролем" data-height-listener-added="true">
+        <div class="caption">Скопируйте этот пароль — он понадобится для входа</div>
+      </div>
+    </div>
+
+    <!-- ШАГ 4 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">4</div>
+        <h2 class="step-title">Начните вход в Delta Chat</h2>
+      </div>
+      <ul>
+        <li>
+          Скачайте и установите приложение с официального сайта
+          <a href="https://delta.chat/ru/download" target="_blank">delta.chat</a>.
+        </li>
+        <li>Откройте приложение → нажмите <strong>«Создать новый профиль»</strong> (или «Войти»).</li>
+        <li>Выберите <strong>«Использовать другой сервер»</strong>.</li>
+        <li>Выберите <strong>«Вход в обычную электронную почту»</strong>.</li>
+        <li>
+          <strong>Важно:</strong> Если появится предложение «Продолжить упрощенную установку (OAuth 2.0)» — нажмите
+          <strong>«Отмена»</strong>. Нам нужна ручная настройка.
+        </li>
+        <li>Нажмите на кнопку <strong>«+ Дополнительные параметры»</strong> (внизу экрана входа).</li>
+      </ul>
+
+      <div class="screenshot-container">
+        <img src="./Настройка Delta Chat с Яндекс.Почтой_files/cfimages(4)" alt="Экран входа в Delta Chat" data-height-listener-added="true">
+        <div class="caption">Выбор входа в обычную почту</div>
+      </div>
+    </div>
+
+    <!-- ШАГ 5 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">5</div>
+        <h2 class="step-title">Введите параметры подключения</h2>
+      </div>
+      <p style="margin-left: 44px">Заполните поля строго по таблице ниже:</p>
+
+      <table class="settings-table">
+        <tbody><tr>
+          <td colspan="2" class="settings-section-header">УЧЕТНЫЕ ДАННЫЕ</td>
+        </tr>
+        <tr>
+          <th>Адрес эл. почты</th>
+          <td>Ваш полный адрес (например, <code>ivanov@yandex.ru</code>)</td>
+        </tr>
+        <tr>
+          <th>Пароль</th>
+          <td><strong>Пароль приложения</strong> из Шага 3 (НЕ от аккаунта!)</td>
+        </tr>
+
+        <tr>
+          <td colspan="2" class="settings-section-header">ВХОДЯЩИЕ (IMAP)</td>
+        </tr>
+        <tr>
+          <th>Имя пользователя</th>
+          <td>Часть адреса до @ (например, <code>ivanov</code>)</td>
+        </tr>
+        <tr>
+          <th>Сервер IMAP</th>
+          <td><code>imap.yandex.ru</code></td>
+        </tr>
+        <tr>
+          <th>Порт IMAP</th>
+          <td><code>993</code></td>
+        </tr>
+        <tr>
+          <th>Защита</th>
+          <td><code>SSL/TLS</code></td>
+        </tr>
+
+        <tr>
+          <td colspan="2" class="settings-section-header">ИСХОДЯЩИЕ (SMTP)</td>
+        </tr>
+        <tr>
+          <th>Имя пользователя</th>
+          <td>Часть адреса до @ (например, <code>ivanov</code>)</td>
+        </tr>
+        <tr>
+          <th>Пароль SMTP</th>
+          <td>Тот же <strong>пароль приложения</strong></td>
+        </tr>
+        <tr>
+          <th>Сервер SMTP</th>
+          <td><code>smtp.yandex.ru</code></td>
+        </tr>
+        <tr>
+          <th>Порт SMTP</th>
+          <td><code>465</code></td>
+        </tr>
+        <tr>
+          <th>Защита</th>
+          <td><code>SSL/TLS</code></td>
+        </tr>
+      </tbody></table>
+
+      <p style="margin-left: 44px">Нажмите галочку <strong>✓</strong> в правом верхнем углу для завершения.</p>
+
+      <div class="screenshot-container">
+        <img src="./Настройка Delta Chat с Яндекс.Почтой_files/cfimages(5)" alt="Настройки IMAP и SMTP" data-height-listener-added="true">
+        <div class="caption">Пример заполнения серверов и портов</div>
+      </div>
+    </div>
+
+    <!-- ШАГ 6 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">6</div>
+        <h2 class="step-title">Разрешите работу в фоне</h2>
+      </div>
+      <ul>
+        <li>
+          После входа Delta Chat попросит разрешение на работу в фоновом режиме или исключение из экономии батареи.
+        </li>
+        <li>
+          Обязательно нажмите <strong>«Разрешить»</strong>. Без этого сообщения могут приходить с большой задержкой.
+        </li>
+      </ul>
+      <div class="screenshot-container">
+        <img src="./Настройка Delta Chat с Яндекс.Почтой_files/cfimages(6)" alt="Запрос фонового режима" data-height-listener-added="true">
+        <div class="caption">Разрешение на фоновую активность</div>
+      </div>
+    </div>
+
+    <!-- ШАГ 7 -->
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-number">7</div>
+        <h2 class="step-title">Проверьте работу</h2>
+      </div>
+      <ul>
+        <li>Добавьте собеседника через QR-код или ссылку-приглашение.</li>
+        <li>Отправьте тестовое сообщение.</li>
+      </ul>
+    </div>
+
+    <!-- БЛОК ПРОБЛЕМ -->
+    <div class="troubleshoot-box">
+      <div class="troubleshoot-title">⚠️ Если не входит (ошибка соединения):</div>
+      <ul>
+        <li>Проверьте, включили ли вы <strong>IMAP</strong> в настройках Яндекс.Почты (Шаг 2).</li>
+        <li>Убедитесь, что вводите <strong>пароль приложения</strong>, а не основной пароль от почты.</li>
+        <li>Иногда Яндекс активирует пароль приложения не мгновенно. Подождите 1–2 часа и попробуйте снова.</li>
+        <li>Если пробовали автонастройку (OAuth), удалите профиль и введите параметры вручную (Шаг 5).</li>
+      </ul>
+    </div>
+
+    <div class="sources">
+  
+    <!--StartFragment-->
+    <div class="step-header" style="
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+        color: rgb(26, 26, 26);
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          sans-serif;
+        font-size: medium;
+        font-style: normal;
+        font-variant-ligatures: normal;
+        font-variant-caps: normal;
+        font-weight: 400;
+        letter-spacing: normal;
+        orphans: 2;
+        text-align: start;
+        text-indent: 0px;
+        text-transform: none;
+        widows: 2;
+        word-spacing: 0px;
+        -webkit-text-stroke-width: 0px;
+        white-space: normal;
+        background-color: rgb(255, 255, 255);
+        text-decoration-thickness: initial;
+        text-decoration-style: initial;
+        text-decoration-color: initial;
+      ">
+      <div class="step-number" style="
+          background-color: rgb(43, 140, 255);
+          color: white;
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          margin-right: 12px;
+          flex-shrink: 0;
+          font-size: 16px;
+        ">8</div>
+      <h2 class="step-title" style="font-size: 20px; font-weight: 600; color: rgb(0, 0, 0); margin: 0px">Начните пользоваться</h2>
+    </div>
+    <ul style="margin-top: 8px; margin-bottom: 16px; padding-left: 24px; color: rgb(26, 26, 26); font-family: Inter, system-ui, -apple-system, sans-serif; font-size: medium; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;">
+      <li style="font-weight: 400; margin-bottom: 8px;">Вуаля, теперь у вас есть мессенджер, который будет работать даже при включенных белых списках мобильного интернета</li>
+      <li style="margin-bottom: 8px;">Более того, он использует <b>End-to End</b> шифрование: <strong data-start="2028" data-end="2050" style="">OpenPGP</strong><strong data-start="2028" data-end="2050" style="font-weight: 400;"> (PGP/MIME)</strong><!--EndFragment-->
+  
+
+</li><li style="margin-bottom: 8px;"><strong data-start="2028" data-end="2050" style="font-weight: 400;">Следующим шагом можно будет добавлять в него уведомления от рабочих чатов из Compass и другие сценарии</strong></li>
+    </ul>
+    <!--EndFragment-->
+  
 
 </div>
+  
 
-</body>
-</html>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;4edd5f8ec12a48cfa682ab8261b80a79&quot;,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+</body></html>
